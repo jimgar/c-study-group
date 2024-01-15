@@ -6,30 +6,33 @@
 
 int main(void)
 {
-    int start_size;
+    // Prompt for start size
+    int start;
     do
     {
-        start_size = get_int("Enter population size at start: ");
+        start = get_int("Enter population size at start: ");
     }
-    while (start_size < MIN_POPULATION_SIZE);
+    while (start < MIN_POPULATION_SIZE);
 
-    int end_size;
+    // Prompt for end size
+    int end;
     do
     {
-        end_size = get_int("Enter population size at end: ");
+        end = get_int("Enter population size at end: ");
     }
-    while (end_size < start_size);
+    while (end < start);
 
-    int growth_size = start_size;
+    // Calculate pop growth and years taken
+    int growth = start;
     int years = 0;
-    do
+    while (growth < end)
     {
-        int born = growth_size / 3;
-        int died = growth_size / 4;
-        growth_size = growth_size + born - died;
+        int born = growth / 3;
+        int died = growth / 4;
+        growth = growth + born - died;
         years++;
     }
-    while (growth_size < end_size);
 
+    // It takes this long
     printf("Years: %i\n", years);
 }
