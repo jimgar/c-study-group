@@ -12,7 +12,7 @@ int main(void)
     long num = 0;
     while (!num)
     {
-    num = get_long("Number: ");
+        num = get_long("Number: ");
     }
 
     // Calculate and validate checksum
